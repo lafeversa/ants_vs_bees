@@ -1,0 +1,18 @@
+# Problem 1
+What is the significance of an Insect's armor attribute? What happens when armor reaches 0?
+Armor acts as hitpoint or the life of an insect. If the armor value of the insect reaches or is reduced below 0 the insect is removed
+
+What are all of the attributes of the Ant class?
+armor, place, damage, and food
+
+Is the armor attribute of the Ant class an instance attribute or class attribute?
+Armor is an instance attribute
+
+Is the damage attribute of the Ant class an instance attribute or class attribute?
+Damage is a class attribute
+
+Which class do both Ant and Bee inherit from?
+Insect
+
+What attribute(s) do Ant and Bee inherit from their superclass?
+armor, place
