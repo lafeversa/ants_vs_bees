@@ -146,6 +146,7 @@ class HarvesterAnt(Ant):
     """HarvesterAnt produces 1 additional food per turn for the colony."""
 
     name = 'Harvester'
+    food_cost = 2
     implemented = True
 
     def action(self, colony):
