@@ -15,4 +15,4 @@ Which class do both Ant and Bee inherit from?
 Insect
 
 What attribute(s) do Ant and Bee inherit from their superclass?
-armor, place
+in_ant, armor, place
