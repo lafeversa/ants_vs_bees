@@ -438,7 +438,7 @@ class Water(Place):
         "*** YOUR CODE HERE ***"
         Place.add_insect(self, insect)
         if insect.watersafe is False:
-            insect.reduce_armor(1)
+            insect.reduce_armor(insect.armor)
 
 class FireAnt(Ant):
     """FireAnt cooks any Bee in its Place when it expires."""
