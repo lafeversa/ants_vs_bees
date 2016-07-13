@@ -445,12 +445,22 @@ class FireAnt(Ant):
 
     name = 'Fire'
     damage = 3
-    "*** YOUR CODE HERE ***"
-    implemented = False
+    food_cost = 4
+    
+    "*** YOUR CODE HERE ***" 
+    implemented = True
 
     def reduce_armor(self, amount):
         "*** YOUR CODE HERE ***"
-
+        # check to see if the fireant has 0 armor, if so do something
+        #if self.armor = 0:
+            # find all the bees in the same place as the fireant
+        self.armor = 0
+        if self.place is not Hive:
+            bees = list(self.place.bees) # Place?
+            # do 3 damage to all bees found
+            for bee in bees:
+                bee.reduce_armor(self.damage)
 
 class LongThrower(ThrowerAnt):
     """A ThrowerAnt that only throws leaves at Bees at least 4 places away."""
