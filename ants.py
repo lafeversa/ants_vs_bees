@@ -464,13 +464,9 @@ class FireAnt(Ant):
 
     def reduce_armor(self, amount):
         "*** YOUR CODE HERE ***"
-        # check to see if the fireant has 0 armor, if so do something
-        #if self.armor = 0:
-            # find all the bees in the same place as the fireant
-        self.armor = 0
+        self.reduce_armor(self.armor)
         if self.place is not Hive:
             bees = list(self.place.bees) # Place?
-            # do 3 damage to all bees found
             for bee in bees:
                 bee.reduce_armor(self.damage)
 
@@ -526,6 +522,13 @@ class NinjaAnt(Ant):
 
 "*** YOUR CODE HERE ***"
 # The ScubaThrower class
+class ScubaThrower(ThrowerAnt):
+    """ScubaAnt is nearly identical to the ThrowerAnt but does not take damage in water."""
+    
+    name = 'Scuba'
+    food_cost = 5
+    watersafe = True
+    implemented = True
 
 
 class HungryAnt(Ant):
@@ -534,18 +537,28 @@ class HungryAnt(Ant):
     """
     name = 'Hungry'
     "*** YOUR CODE HERE ***"
-    implemented = False
+    time_to_digest = 3
+    food_cost = 4
+    implemented = True
 
     def __init__(self):
         Ant.__init__(self)
         "*** YOUR CODE HERE ***"
+        self.digesting = 0
 
     def eat_bee(self, bee):
         "*** YOUR CODE HERE ***"
+        bee.reduce_armor(bee.armor)
+        self.digesting = self.time_to_digest
 
     def action(self, colony):
         "*** YOUR CODE HERE ***"
-
+        if self.digesting > 0:
+            self.digesting -= 1
+        else:
+            target_bee = random_or_none(self.place.bees)
+            if target_bee is not None:
+                self.eat_bee(target_bee)
 
 class BodyguardAnt(Ant):
     """BodyguardAnt provides protection to other Ants."""
