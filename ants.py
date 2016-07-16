@@ -187,7 +187,7 @@ class ThrowerAnt(Ant):
         "*** YOUR CODE HERE ***"
         current_place = self.place
         distance = 0
-        while current_place != hive:# and distance < self.max_range:
+        while current_place != hive:
             if current_place.bees and distance in range(self.min_range,self.max_range+1):
                 return random_or_none(current_place.bees)
             else:
@@ -493,6 +493,16 @@ class ShortThrower(ThrowerAnt):
 
 "*** YOUR CODE HERE ***"
 # The WallAnt class
+class WallAnt(Ant):
+    """A WallAnt that does nothing each turn but has a large armor value."""
+    
+    name = 'Wall'
+    food_cost = 4
+    implemented = True
+    
+    def __init__(self, armor=4):
+        """Create an Ant with an armor quantity."""
+        Insect.__init__(self, armor)
 
 
 class NinjaAnt(Ant):
