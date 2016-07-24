@@ -45,17 +45,13 @@ class Place:
             "*** YOUR CODE HERE ***"
             if self.ant is None:
                 self.ant = insect
-                insect.place = self
-                return
-            if self.ant.container and self.ant.contain_ant(insect):
-                insect.place = self
-                return
-            if insect.container and insect.contain_ant(self.ant):
+            elif self.ant.container and self.ant.contain_ant(insect):
+                pass
+            elif insect.container and insect.contain_ant(self.ant):
                 self.ant = insect
-                insect.place = self
-                return
-            assert self.ant is None, 'Two ants in {0}'.format(self)
-            self.ant = insect
+            else:
+                assert self.ant is None, 'Two ants in {0}'.format(self)
+                self.ant = insect
         else:
             self.bees.append(insect)
         insect.place = self
