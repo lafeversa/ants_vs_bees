@@ -619,22 +619,29 @@ class QueenPlace:
     """
     def __init__(self, colony_queen, ant_queen):
         "*** YOUR CODE HERE ***"
+        # Storing the arguments passed to __init__ for later use. Safe to assume that arguments being passed to __init__ will need to be stored and used later.
+        self.colony_queen = colony_queen
+        selt.ant_queen = ant_queen
 
     @property
     def bees(self):
         "*** YOUR CODE HERE ***"
-
-
+        queen_bees = self.colony_queen.bees + self.ant_queen.bees
+        return queen_bees
+        
+        
 class QueenAnt(ScubaThrower):  # You should change this line
     """The Queen of the colony.  The game is over if a bee enters her place."""
 
     name = 'Queen'
     "*** YOUR CODE HERE ***"
-    implemented = False
+    food_cost = 6
+    implemented = True
 
     def __init__(self):
         "*** YOUR CODE HERE ***"
 
+    
     def action(self, colony):
         """A queen ant throws a leaf, but also doubles the damage of ants
         in her tunnel.
@@ -642,7 +649,9 @@ class QueenAnt(ScubaThrower):  # You should change this line
         Impostor queens do only one thing: reduce their own armor to 0.
         """
         "*** YOUR CODE HERE ***"
-
+        # Resets the colony.queen place to a new object QueenPlace that represents both the colony.queen place and the place of the actual queen.
+        colony.queen  = QueenPlace(colony.queen, self.place)
+        
 
 class AntRemover(Ant):
     """Allows the player to remove ants from the board in the GUI."""
