@@ -625,7 +625,7 @@ class QueenPlace:
         "*** YOUR CODE HERE ***"
 
 
-class QueenAnt:  # You should change this line
+class QueenAnt(ScubaThrower):  # You should change this line
     """The Queen of the colony.  The game is over if a bee enters her place."""
 
     name = 'Queen'
